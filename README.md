@@ -1,6 +1,6 @@
 <h1>PASSCRACX</h1>
 <b>PassCrax</b> is a simple wordlist password cracking tool 🔓 I wrote during my early years as a pentesting noobie 💻.
-Its simple and but works, anyway.
+Its simple but does a great job👍.
 
 <h2>Instructions</h2>
 You need to have ruby installed on your system on which this script will run.
