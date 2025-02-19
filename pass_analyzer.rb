@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
+require 'base64'
 
+begin
 def pass_analyze
     grn = "\e[32m"
     blu = "\e[34m"
@@ -26,6 +28,13 @@ when 128
     puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA512#{rst}"
 
 else
-    puts "\n#{red}Error: Unknown Hash Length#{rst}"
+    puts "\n#{red}Error: Unknown Hash Function!#{rst}"
+    puts "\n#{grn}Decoding Hash String {Maybe Base64 Encoded}...#{rst}"
+    decoded = Base64.strict_decode64(hash)
+        puts "\n#{grn}Base64 Decoded Hash String:#{rst} #{ylw}#{decoded}#{rst}\n"
+
+end
+rescue ArgumentError => e
+    puts "\n#{red}Error: Hash String Isn't Base64 Encoded!#{rst}"
     end
 end
