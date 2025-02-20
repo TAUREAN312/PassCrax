@@ -9,7 +9,7 @@ def pass_analyze
     red = "\e[31m"
     rst = "\e[0m"
   
-puts "\n#{blu}Enter Hash String#{rst}"
+puts "\n#{blu}Enter Hash String For Analysis:#{rst}"
 hash = gets.chomp
 
 case hash.length
@@ -19,7 +19,7 @@ when 32
 when 40
     puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA1#{rst}"
 when 64
-    puts "\n#{grn}The Hash String Is#{rst} #{ylw }SHA256#{rst}"
+    puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA256#{rst}"
 
 when 96
    puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA384#{rst}"
@@ -28,13 +28,13 @@ when 128
     puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA512#{rst}"
 
 else
-    puts "\n#{red}Error: Unknown Hash Function!#{rst}"
+    puts "\n#{red}Error: Unknown Hash Format!#{rst}"
     puts "\n#{grn}Decoding Hash String {Maybe Base64 Encoded}...#{rst}"
     decoded = Base64.strict_decode64(hash)
         puts "\n#{grn}Base64 Decoded Hash String:#{rst} #{ylw}#{decoded}#{rst}\n"
 
 end
-rescue ArgumentError => e
+rescue ArgumentError
     puts "\n#{red}Error: Hash String Isn't Base64 Encoded!#{rst}"
     end
 end
