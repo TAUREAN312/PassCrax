@@ -2,8 +2,8 @@
 
 <div align="center">
 
-  <img src="https://github.com/user-attachments/assets/0430de14-268b-45cd-9872-1386ae12bb68" alt="pic1" width="600">
-<img src="https://github.com/user-attachments/assets/9e78185e-9937-4842-8d1d-12ddfaae7f0c" alt="pic2" width="600">
+  <img src="https://github.com/user-attachments/assets/03232c7f-d93a-4a3b-a54c-2ddb55072af1" alt="pic1" width="600">
+<img src="https://github.com/user-attachments/assets/3fd8e98c-ae7a-421a-a7fe-7a9a2b8bceb8" alt="pic2" width="600">
     <strong>A lightweight password-cracking and hash analysis tool.</strong><br>
     <em>Designed for ethical hacking and penetration testing.</em>
 </div>
