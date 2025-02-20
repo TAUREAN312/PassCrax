@@ -1,3 +1,6 @@
+<img src="https://github.com/user-attachments/assets/0430de14-268b-45cd-9872-1386ae12bb68" alt="pic1" width="600">
+<img src="https://github.com/user-attachments/assets/9e78185e-9937-4842-8d1d-12ddfaae7f0c" alt="pic2" width="600">
+
 <h1>PASSCRACX</h1>
 <b>PassCrax</b> is a simple wordlist password cracking tool 🔓 I wrote during my early years as a pentesting noobie 💻.
 Its simple but does a great job👍.
