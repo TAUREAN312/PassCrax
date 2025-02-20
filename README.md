@@ -20,7 +20,7 @@
   - Identifies various hash algorithms.
   - Decodes Base64 when the hash format is unknown.
 - 🧂 **Salt Handling & Extraction**  
-  - Attempts to analyze salts from known hash formats.
+  - Attempts to analyze salts.
 - 🔑 **Password Cracking Support** *(Planned Features)*
   - Brute-force attacks.
   - Peppering support.
