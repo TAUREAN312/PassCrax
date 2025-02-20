@@ -7,13 +7,22 @@ require 'digest'
     RED = "\e[31m"
     RST = "\e[0m"
     
-def brute_all(wordlist, hash, hashfunc)
-       File.foreach(wordlist) do |word|
+def brute_all( hash, hashfunc)
+    wordlist_dir = "Wordlist/"
+    wordlist_files = Dir.glob("#{wordlist_dir}/*.txt")
+    if wordlist_files.empty?
+        puts "\n#{RED}Error: No Wordlist Files Found In #{wordlist_dir}!#{RST}"
+    return
+    end
+       wordlist_files.each do |file|
+           puts "\n#{YLW}Scanning File: #{file}#{RST}"
+           File.foreach(file) do |word|
            word.chomp!
            return word if
            hashfunc.call(word) == hash
        end
        nil
+   end
    end
 
 #main
@@ -21,8 +30,6 @@ def pass_crack()
     begin
        puts "\n#{BLU}Enter Hash String:#{RST}"
        hash = gets.chomp
-       puts "\n#{BLU}Enter Wordlist Filename:#{RST}"
-       wordlist = gets.chomp
 
        puts "\n#{BLU}SELECT HASH FUNCTIONS\n#{RST} #{GRN}[1] MD5\n [2] SHA-1\n [3] SHA-256\n [4] SHA-384\n [5] SHA-512\n#{RST}"
        input = gets.chomp.to_i
@@ -53,12 +60,8 @@ def pass_crack()
        puts "\n#{RED}Error: Invalid Input!#{RST}"
    end
 
-  result = brute_all(wordlist, hash, hashfunc)
+  result = brute_all( hash, hashfunc)
   puts result ?
-   "#{GRN}Password Found:#{RST} #{YLW} #{result} #{RST}" : "#{RED}Password Not Found!#{RST}"
-
-rescue Errno::ENOENT
-       puts "#{RED}Error: Wordlist file not found!#{RST}"
-       exit
+   "\n#{GRN}Password Found:#{RST} #{YLW} #{result} #{RST}" : "\n#{RED}Password Not Found!#{RST}"
   end
 end
