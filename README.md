@@ -3,8 +3,8 @@
 Its simple but does a great job👍.
 
 <h2>Features</h2>
-•Salt Cracker
-•Wordlist Cracker
+•Salt Cracker</br>
+•Wordlist Cracker</br>
 •Hash Analyzer/ Hash Identifier </br>
 <h2>Instructions</h2>
 You need to have ruby installed on your system on which this script will run.
