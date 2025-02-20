@@ -34,7 +34,6 @@
 ### 🔧 **Requirements**
 - **Ruby** (Ensure it's installed)
 - Required dependencies (Install with `gem install ...` if needed)
-<strong>NB: Wordlist Files Should Be In The Same Directory Or Folder As The Scripts. Else You'll Have To Specify The File Path Of The Wordlist Files.</strong>
 <h3>Happy Cracking</h3>
 
 
