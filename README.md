@@ -1,18 +1,45 @@
-<img src="https://github.com/user-attachments/assets/0430de14-268b-45cd-9872-1386ae12bb68" alt="pic1" width="600">
+# <div align="center">🔓 PassCrax</div>
+
+<div align="center">
+
+  <img src="https://github.com/user-attachments/assets/0430de14-268b-45cd-9872-1386ae12bb68" alt="pic1" width="600">
 <img src="https://github.com/user-attachments/assets/9e78185e-9937-4842-8d1d-12ddfaae7f0c" alt="pic2" width="600">
+    <strong>A lightweight password-cracking and hash analysis tool.</strong><br>
+    <em>Designed for ethical hacking and penetration testing.</em>
+</div>
 
-<h1>PASSCRACX</h1>
-<b>PassCrax</b> is a simple wordlist password cracking tool 🔓 I wrote during my early years as a pentesting noobie 💻.
-Its simple but does a great job👍.
+---
 
-<h2>Features</h2>
-•Salt Cracker</br>
-•Wordlist Cracker</br>
-•Hash Analyzer/ Hash Identifier </br>
-<h2>Instructions</h2>
-You need to have ruby installed on your system on which this script will run.
-Passcrax requires no external dependencies hence doesn't require modifications to run it.
-The file named <i>"passcrax.rb"</i> is the main file which is to be executed.<br>
+## ⚡ About PassCrax
+**PassCrax** is a **password-cracking** and **hash analysis** tool designed for penetration testers and security researchers. It automates **hash detection**, **base64 decoding**, and **salt handling**, making the cracking process more efficient.
+
+---
+
+## 🚀 Features
+- 🔍 **Automatic Hash Format Detection**  
+  - Identifies various hash algorithms.
+  - Decodes Base64 when the hash format is unknown.
+- 🧂 **Salt Handling & Extraction**  
+  - Attempts to analyze salts from known hash formats.
+- 🔑 **Password Cracking Support** *(Planned Features)*
+  - Brute-force attacks.
+  - Peppering support.
+- 📝 **Lightweight & Minimalist**
+  - Built for **speed and efficiency**.
+
+---
+
+## 📜 Installation & Usage
+
+### 🔧 **Requirements**
+- **Ruby** (Ensure it's installed)
+- Required dependencies (Install with `gem install ...` if needed)
 <strong>NB: Wordlist Files Should Be In The Same Directory Or Folder As The Scripts. Else You'll Have To Specify The File Path Of The Wordlist Files.</strong>
 <h3>Happy Cracking</h3>
+
+
+### ▶ **Installation**
+```bash
+git clone https://github.com/TAUREAN312/PassCrax.git
+cd PassCrax
 
