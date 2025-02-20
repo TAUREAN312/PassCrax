@@ -2,6 +2,10 @@
 <b>PassCrax</b> is a simple wordlist password cracking tool 🔓 I wrote during my early years as a pentesting noobie 💻.
 Its simple but does a great job👍.
 
+<h2>Features</h2>
+•Salt Cracker
+•Wordlist Cracker
+•Hash Analyzer/ Hash Identifier </br>
 <h2>Instructions</h2>
 You need to have ruby installed on your system on which this script will run.
 Passcrax requires no external dependencies hence doesn't require modifications to run it.
