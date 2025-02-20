@@ -1,102 +1,64 @@
 #!/usr/bin/env ruby
 require 'digest'
+
+    GRN = "\e[32m"
+    BLU = "\e[34m"
+    YLW = "\e[33m"
+    RED = "\e[31m"
+    RST = "\e[0m"
+    
+def brute_all(wordlist, hash, hashfunc)
+       File.foreach(wordlist) do |word|
+           word.chomp!
+           return word if
+           hashfunc.call(word) == hash
+       end
+       nil
+   end
+
+#main
 def pass_crack()
-    grn = "\e[32m"
-    blu = "\e[34m"
-    ylw = "\e[33m"
-    red = "\e[31m"
-    rst = "\e[0m"
- begin
-   puts "\n#{blu}Enter Hash String:#{rst}"
-    hash = gets.chomp
-    puts "\n#{blu}Enter Wordlist Filename:#{rst}"
-    wordlist = gets.chomp
+    begin
+       puts "\n#{BLU}Enter Hash String:#{RST}"
+       hash = gets.chomp
+       puts "\n#{BLU}Enter Wordlist Filename:#{RST}"
+       wordlist = gets.chomp
 
-   puts "\n#{blu}SELECT HASH FUNCTIONS\n#{rst} #{grn}[1] MD5\n [2] SHA-1\n [3] SHA-256\n [4] SHA-384\n [5] SHA-512\n#{rst}"
-   input = gets.chomp.to_i
-  def brute_md5(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::MD5.hexdigest(word) == hash
-       end
-       nil
-   end
+       puts "\n#{BLU}SELECT HASH FUNCTIONS\n#{RST} #{GRN}[1] MD5\n [2] SHA-1\n [3] SHA-256\n [4] SHA-384\n [5] SHA-512\n#{RST}"
+       input = gets.chomp.to_i
 
-   def brute_sha256(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::SHA256.hexdigest(word) == hash
-       end
-       nil
-   end
-
-   def brute_sha1(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::SHA1.hexdigest(word) == hash
-       end
-       nil
-   end
-
-   def brute_sha2(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::SHA2.hexdigest(word) == hash
-       end
-       nil
-   end
-
-   def brute_sha384(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::SHA384.hexdigest(word) == hash
-       end
-       nil
-   end
-
-   def brute_sha512(wordlist, hash)
-       File.foreach(wordlist) do |word|
-           word.chomp!
-           return word if
-           Digest::SHA512.hexdigest(word) == hash
-       end
-       nil
-   end
-   case input
+   hashfunc = case input
    when 1
-    result = brute_md5(wordlist, hash)
-   puts result ?
-   "#{grn}Password Found:#{rst} #{ylw} #{result} #{rst}" : "#{red}Password Not Found!#{rst}"
+       lambda { |word|
+       Digest::MD5.hexdigest(word) }
 
    when 2
-    result = brute_sha1(wordlist, hash)
-   puts result ?
-   "#{grn}Password Found:#{rst} #{ylw}#{result}#{rst}" : "#{red}Password Not Found!#{rst}"
-   
+       lambda { |word|
+       Digest::SHA1.hexdigest(word) }
 
    when 3
-    result = brute_sha256(wordlist, hash)
-   puts result ?
-   "#{grn}Password Found:#{rst} #{ylw}#{result}#{rst}" : "#{red}Password Not Found!#{rst}"
+       lambda { |word|
+       Digest::SHA256.hexdigest(word) }
    
 
    when 4
-    result = brute_sha384(wordlist, hash)
-   puts result ?
-   "#{grn}Password Found:#{rst} #{ylw} #{result}#{rst}" : "#{red}Password Not Found!#{rst}"
+       lambda { |word|
+       Digest::SHA384.hexdigest(word) }
+
+   when 5
+       lambda { |word|
+       Digest::SHA512.hexdigest(word) }
 
    else
-    result = brute_sha512(wordlist, hash)
-   puts result ?
-   "#{grn}Password Found:#{rst} #{ylw}#{result}#{rst}" : "#{red}Password Not Found!#{rst}"
+       puts "\n#{RED}Error: Invalid Input!#{RST}"
    end
-end
+
+  result = brute_all(wordlist, hash, hashfunc)
+  puts result ?
+   "#{GRN}Password Found:#{RST} #{YLW} #{result} #{RST}" : "#{RED}Password Not Found!#{RST}"
+
 rescue Errno::ENOENT
-       puts "#{red}Error: Wordlist file not found!#{rst}"
+       puts "#{RED}Error: Wordlist file not found!#{RST}"
        exit
+  end
 end
