@@ -24,6 +24,7 @@
   - Brute-force attacks.
   - Peppering support.
   - More Hash Algorithms.
+  - Parallel Processing.
 - 📝 **Lightweight & Minimalist**
   - Built for **speed and efficiency**.
 
