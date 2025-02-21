@@ -12,7 +12,7 @@ def brute_all(hash, hashfunc)
         puts "\n#{red}Error: No Files Found In #{wordlist_dir}#{rst}"
     return
    end
-    (wordlist_files).each do |file|
+    wordlist_files.each do |file|
         puts "\n#{ylw}Scanning File: #{file}...#{rst}"
         
        File.foreach(file) do |word|
@@ -33,9 +33,9 @@ def salt_crack()
     rst = "\e[0m"
 begin
    puts "\n#{blu}Enter Salt:#{rst}"
-   salt = gets.chomp
+   salt = gets.chomp.strip.downcase
    puts "\n#{blu}Enter Salted Hash String:#{rst}"
-    hash = gets.chomp
+    hash = gets.chomp.strip.downcase
    puts "\n#{blu}SELECT HASH FUNCTIONS\n#{rst} #{grn}[1] MD5\n [2] SHA-1\n [3] SHA-256\n [4] SHA-384\n [5] SHA-512\n#{rst}"
    input = gets.chomp.to_i
 
