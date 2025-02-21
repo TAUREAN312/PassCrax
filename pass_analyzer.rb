@@ -1,40 +1,48 @@
 #!/usr/bin/env ruby
-require 'base64'
 
-begin
-def pass_analyze
+HASH_PATTERNS = {
+  "MD5"       => /^[a-f0-9]{32}$/i,
+  "SHA-1"     => /^[a-f0-9]{40}$/i,
+  "SHA-224"   => /^[a-f0-9]{56}$/i,
+  "SHA-256"   => /^[a-f0-9]{64}$/i,
+  "SHA-384"   => /^[a-f0-9]{96}$/i,
+  "SHA-512"   => /^[a-f0-9]{128}$/i,
+  "NTLM"      => /^[a-f0-9]{32}$/i,
+  "LM Hash"   => /^[a-f0-9]{32}$/i,
+  "MySQL v3+" => /^[a-f0-9]{16}$/i,
+  "MySQL v5+" => /^\*[A-F0-9]{40}$/i,
+  "bcrypt"    => /^\$2[ayb]\$.{56}$/i,
+  "Argon2"    => /^\$argon2[a-z]+\$.+/i,
+  "DES (Unix)"=> /^.{13}$/i
+}
+
+def find_hash(hash)
     grn = "\e[32m"
     blu = "\e[34m"
     ylw = "\e[33m"
     red = "\e[31m"
     rst = "\e[0m"
-  
+
 puts "\n#{blu}Enter Hash String For Analysis:#{rst}"
-hash = gets.chomp
+hash = gets.chomp.strip
 
-case hash.length
-when 32
-    puts "\n#{grn}The Hash String Is#{rst} #{ylw} MD5#{rst}"
+  if hash.nil? || hash.empty?
+      return "Invalid input!"
+  end
 
-when 40
-    puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA1#{rst}"
-when 64
-    puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA256#{rst}"
-
-when 96
-   puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA384#{rst}"
-
-when 128
-    puts "\n#{grn}The Hash String Is#{rst} #{ylw} SHA512#{rst}"
-
-else
-    puts "\n#{red}Error: Unknown Hash Format!#{rst}"
-    puts "\n#{grn}Decoding Hash String {Maybe Base64 Encoded}...#{rst}"
-    decoded = Base64.strict_decode64(hash)
-        puts "\n#{grn}Base64 Decoded Hash String:#{rst} #{ylw}#{decoded}#{rst}\n"
-
+  hash = hash.strip
+ 
+  matches = HASH_PATTERNS.select { |name, regex| hash.match?(regex) }.keys
+  return matches.join(" / ") unless matches.empty?
+  "#{red}Unknown Hash Format!#{rst}"
 end
-rescue ArgumentError
-    puts "\n#{red}Error: Hash String Isn't Base64 Encoded!#{rst}"
-    end
+
+def pass_analyze()
+   grn = "\e[32m"
+    blu = "\e[34m"
+    ylw = "\e[33m"
+    red = "\e[31m"
+    rst = "\e[0m"
+
+puts "#{grn}\nHash Type:#{rst} #{ylw}#{find_hash(hash)}#{rst}"
 end
