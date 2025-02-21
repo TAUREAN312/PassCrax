@@ -35,6 +35,17 @@
 - **Ruby** (Ensure it's installed)
 - Required dependencies (Install with `gem install ...` if needed)
 
+<h2>Disclaimer</h2>
+<p>
+  This tool is intended for <strong>educational and ethical penetration testing purposes only.</strong>  
+  Unauthorized use of PassCrax on systems <strong>without explicit permission</strong> is illegal  
+  and may result in <strong>criminal charges.</strong>
+</p>
+<p>
+  The developer <strong>is not responsible</strong> for any misuse of this tool.  
+  Use it responsibly and always follow <strong>ethical hacking laws</strong> in your country.
+</p>
+
 <h1 style = "text-align:center;">Happy Cracking</h1>
 
 
