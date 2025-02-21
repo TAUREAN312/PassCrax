@@ -29,8 +29,7 @@ def brute_all( hash, hashfunc)
 def pass_crack()
     begin
        puts "\n#{BLU}Enter Hash String:#{RST}"
-       hash = gets.chomp
-
+       hash = gets.chomp.strip.downcase
        puts "\n#{BLU}SELECT HASH FUNCTIONS\n#{RST} #{GRN}[1] MD5\n [2] SHA-1\n [3] SHA-256\n [4] SHA-384\n [5] SHA-512\n#{RST}"
        input = gets.chomp.to_i
 
