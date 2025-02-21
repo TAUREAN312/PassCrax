@@ -11,19 +11,19 @@
 ---
 
 ## ⚡ About PassCrax
-**PassCrax** is a **password-cracking** and **hash analysis** tool designed for penetration testers and security researchers. It automates **hash detection**, **base64 decoding**, and **salt handling**, making the cracking process more efficient.
+**PassCrax** is a **password-cracking** and **hash analysis** tool designed for penetration testers and security researchers. It automates **hash detection** and **salt handling** making the cracking process more efficient.
 
 ---
 
 ## 🚀 Features
 - 🔍 **Automatic Hash Format Detection**  
   - Identifies various hash algorithms.
-  - Decodes Base64 when the hash format is unknown.
 - 🧂 **Salt Handling & Extraction**  
   - Attempts to analyze salts.
 - 🔑 **Password Cracking Support** *(Planned Features)*
   - Brute-force attacks.
   - Peppering support.
+  - More Hash Algorithms.
 - 📝 **Lightweight & Minimalist**
   - Built for **speed and efficiency**.
 
@@ -34,11 +34,14 @@
 ### 🔧 **Requirements**
 - **Ruby** (Ensure it's installed)
 - Required dependencies (Install with `gem install ...` if needed)
-<h3>Happy Cracking</h3>
+
+<h1 style = "text-align:center;">Happy Cracking</h1>
 
 
 ### ▶ **Installation**
 ```bash
 git clone https://github.com/TAUREAN312/PassCrax.git
 cd PassCrax
+chmod +x *
+./PassCrax.rb
 
